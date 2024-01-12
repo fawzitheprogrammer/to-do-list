@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('to_do',function(Blueprint $table){
-           $table->id();
-           $table->string('task');
-           $table->boolean('is_done');
-           $table->timestamp('created_at')->nullable();
-          
+        Schema::table('to_do', function (Blueprint $table) {
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('task', function (Blueprint $table) {
+            //
+        });
     }
 };

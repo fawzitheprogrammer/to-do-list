@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ToDo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', );
+Route::get('/', [ToDo::class,'home'] );
+Route::post('/insert', [ToDo::class,'save'] );

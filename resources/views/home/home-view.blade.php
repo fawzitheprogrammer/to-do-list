@@ -12,23 +12,27 @@
        <!--- HEADER -->
        <p class="text-lg font-bold">To-Do List App</p>
        <p class="text-sm font-regular">Insert your item below and click on Add</p>
-        <form class="mt-2" action="/insert" method="post">
+        <form class="mt-2" action="/insert" method="POST">
+            @csrf
         <div class="">
             <input class="bg-white-200 border border-grey-600 rounded px-2 mx-auto py-2" type="text" name="task" id="">
-            <button type="button" class="inline-flex item-center py-2.5 px-3 ms-2 text-sm font-medium bg-cyan-400">Add</button>
+            <button class="inline-flex item-center py-2.5 px-3 ms-2 text-sm font-medium bg-cyan-400">Add</button>
         </div>
         </form>
 
         <div class="max-auto">
-            @for ($i = 0 ;$i<10;$i++)
-               <ol>
+            @foreach ($tasks as $task )
+            <ol>
                 <li>
-                    <div class="flex flex-row w-full bg-white mt-2 px-2">
-                        {{$i}}
+                  <div class="place-content-between flex flex-row w-full bg-white mt-2 px-2 mx-auto" >
+                    <div class="">
+                        {{$task->task}}
                     </div>
+                    <div>Delete</div>
+                </div>
                 </li>
                </ol>
-            @endfor
+            @endforeach
         </div>
         </div>
       </div>

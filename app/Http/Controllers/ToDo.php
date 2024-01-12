@@ -2,21 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tasks;
+
 use Illuminate\Http\Request;
+use App\Models\Tasks;
 
 class ToDo extends Controller
 {
     public function home()
     {
-        return view('home.home-view');
+
+
+        $tasks = Tasks::all();
+
+        return view('home.home-view',['tasks'=>$tasks]);
     }
 
 
     public function save(){
-        $todo = new Tasks();
+        $todo = new Tasks;
 
-        $todo->request('task');
+        $todo->task = \request('task');
+        $todo->is_done = false;
         
+        $todo->save();
+
+
+        return redirect('/')->with('success','Saved successfully !');
+
     }
+
+
+    
 }
