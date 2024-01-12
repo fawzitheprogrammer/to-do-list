@@ -57,7 +57,9 @@
             </form>
 
             <div class="max-auto">
+                @if ($tasks->count()>0)
                 @foreach($tasks as $task )
+                    
                     <ol>
                         <li>
                             <div class="place-content-between flex flex-row w-fulsl bg-white mt-2 px-2 mx-auto p-4">
@@ -82,7 +84,13 @@
                             </div>
                         </li>
                     </ol>
+                    
                 @endforeach
+                @else
+                        <p class="mx-auto pt-4 ">
+                            You have no tasks in the list yet.
+                        </p>
+                    @endif
 
             </div>
         </div>
