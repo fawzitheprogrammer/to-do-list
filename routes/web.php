@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ToDo::class,'home'] );
 Route::post('/insert', [ToDo::class,'save'] );
+Route::post('/update/{id}', [ToDo::class,'update'] );

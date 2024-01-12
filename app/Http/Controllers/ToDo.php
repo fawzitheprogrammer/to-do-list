@@ -30,6 +30,21 @@ class ToDo extends Controller
         return redirect('/')->with('success','Saved successfully !');
 
     }
+    public function update($id){
+
+
+        $todo = Tasks::findOrFail($id);
+        $todo->is_done = \request('check')==0?'0':1;
+        
+        $todo->update();
+
+
+        // return \request('check');
+
+
+        return redirect('/')->with('success','Update successfully !');
+
+    }
 
 
     
