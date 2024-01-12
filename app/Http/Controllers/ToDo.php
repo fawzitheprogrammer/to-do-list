@@ -47,5 +47,13 @@ class ToDo extends Controller
     }
 
 
+    public function delete($id){
+        $todo = Tasks::findOrFail($id);
+        $todo->delete();
+
+        return redirect('/')->with('failure','Delete successfully !');
+    }
+
+
     
 }
