@@ -14,46 +14,51 @@ class ToDo extends Controller
 
         $tasks = Tasks::all();
 
-        return view('home.home-view',['tasks'=>$tasks]);
+        return view('home.home-view', ['tasks' => $tasks]);
     }
 
 
-    public function save(){
+    public function save()
+    {
         $todo = new Tasks;
 
-        $todo->task = \request('task');
-        $todo->is_done = false;
-        
-        $todo->save();
+        if (request()->validate(['task' => 'required'])) {
+            $todo->task = \request('task');
+            $todo->is_done = false;
+
+            $todo->save();
+        }
 
 
-        return redirect('/')->with('success','Saved successfully !');
+        return redirect('/')->with('success', 'Saved successfully !');
 
     }
-    public function update($id){
+    public function update($id)
+    {
 
 
         $todo = Tasks::findOrFail($id);
-        $todo->is_done = \request('check')==0?'0':1;
-        
+        $todo->is_done = \request('check') == 0 ? '0' : 1;
+
         $todo->update();
 
 
         // return \request('check');
 
 
-        return redirect('/')->with('success','Update successfully !');
+        return redirect('/')->with('success', 'Update successfully !');
 
     }
 
 
-    public function delete($id){
+    public function delete($id)
+    {
         $todo = Tasks::findOrFail($id);
         $todo->delete();
 
-        return redirect('/')->with('failure','Delete successfully !');
+        return redirect('/')->with('failure', 'Delete successfully !');
     }
 
 
-    
+
 }

@@ -11,7 +11,7 @@
         class="relative bg-green-50 px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
 
         @if(session('success'))
-            <div class="flex items-center p-4 mb-4 text-sm text-green-600 border border-cgreenyan-300 rounded-lg bg-green-50 dark:bg-green-100 dark:text-green-400 dark:border-green-800"
+            <div class="flex items-center p-4 mb-4 text-sm text-green-600 border border-cgreenyan-300 rounded-lg bg-green-50 dark:bg-green-100 dark:text-green-800 dark:border-green-800"
                 role="alert">
                 <svg class="flex-shrink-0 inline w-4 h-4 me-3" xmlns="http://www.w3.org/2000/svg" height="16" width="14"
                     viewBox="0 0 448 512">
